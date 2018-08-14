@@ -5,42 +5,8 @@ if (!defined('ABSPATH')) {
 
 class WPIE_Export{
 	public function __construct() {
-		add_action( 'wp', array($this,'generate_csv'));
-
-		//add_action( 'wp_head', array($this,'analyze_shortode') );
 		add_action( 'wp', array($this,'generate_csv_callback') );
 		add_shortcode( 'wpie_csv_button',array($this,'wpie_csv_button_callback') );
-	}
-
-	public function generate_csv(){
-
-		if(isset($_GET['generate'])){
-			$defaults = array( 'content'    => 'all',
-                   'author'     => false,
-                   'category'   => false,
-                   'start_date' => false,
-                   'end_date'   => false,
-                   'status'     => false,
-			);
-
-			$user_args = array(
-				'role'   => wp_kses_post( 'wprr_guest' ),
-				'fields' => 'all_with_meta',
-			);
-
-			$merge_args = array_merge( $defaults, $user_args );
-			//$args = wp_parse_args( $args, $merge_args );
-
-			$users = get_users( $merge_args );
-
-			$fields = $this->wpie_user_db();
-
-			$headers = $this->users_header($fields);
-
-			echo "<pre>";
-			print_r($headers);
-			echo "</pre>";
-		}
 	}
 
 	function wpie_csv_button_callback($atts){
@@ -80,7 +46,6 @@ class WPIE_Export{
 			);
 
 			$merge_args = array_merge( $defaults, $user_args );
-			//$args = wp_parse_args( $args, $merge_args );
 
 			$users = get_users( $merge_args );
 
@@ -105,6 +70,7 @@ class WPIE_Export{
 		}
 	}
 
+	//replaces id to 'user_id' to avoid conflict
 	public function users_header($fields){
 		$headers = array();
 		foreach ( $fields as $key => $field ) {
@@ -113,7 +79,6 @@ class WPIE_Export{
 			}
 			$headers[] = strtolower( $field );
 		}
-		//
 		foreach($headers as $header=>$head){
 			if ($headers[$header] == 'id' ){
 				$headers[$header] = 'user_id';
@@ -122,6 +87,7 @@ class WPIE_Export{
 		return $headers;
 	}
 
+	//Standard params for creating WP Users
 	public function wpie_user_db(){
 		global $wpdb;
 
@@ -144,7 +110,6 @@ class WPIE_Export{
 
 		return $fields;
 	}
-
 }
 
 new WPIE_Export;
