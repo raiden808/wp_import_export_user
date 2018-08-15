@@ -114,4 +114,4 @@ class WPIE_Export{
 
 
 
-// new WPIE_Export;
+new WPIE_Export;

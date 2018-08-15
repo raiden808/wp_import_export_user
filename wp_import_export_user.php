@@ -32,5 +32,3 @@ function classAutoLoader($class){
 	}
 }
 spl_autoload_register('classAutoLoader');
-
-$new = new WPIE_Export;
