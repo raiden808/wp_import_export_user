@@ -19,9 +19,6 @@ define( 'WPIE_VERSION', '1.0.0' );
 define( 'WPIE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPIE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
-// require_once( WPIE_PLUGIN_PATH.'/classes/class-wpie-export.php' );
-// require_once( WPIE_PLUGIN_PATH.'/classes/class-wpie-import.php' );
-
 function classAutoLoader($class){
 	$class    = strtolower($class);
 	$the_path = WPIE_PLUGIN_PATH."classes/{$class}.php";
@@ -32,3 +29,6 @@ function classAutoLoader($class){
 	}
 }
 spl_autoload_register('classAutoLoader');
+
+$wpie_Export = new WPIE_Export;
+$wpie_import = new WPIE_Import;

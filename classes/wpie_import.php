@@ -121,4 +121,4 @@ class WPIE_Import{
 	}
 }
 
-$wpie_import = new WPIE_Import;
+// $wpie_import = new WPIE_Import;
