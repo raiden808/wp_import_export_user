@@ -20,15 +20,19 @@ define( 'WPIE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPIE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 function classAutoLoader($class){
+	$needle   = "wpie";
+	if( strpos( $class, $needle ) !== false) {
+	 	return;
+	}
+
 	$class    = strtolower($class);
 	$the_path = WPIE_PLUGIN_PATH."classes/{$class}.php";
 	if(file_exists($the_path)){
 		require_once($the_path);
-	}else{
-		die("This file named {$class}.php was found not man....");
 	}
 }
+
 spl_autoload_register('classAutoLoader');
 
-$wpie_Export = new WPIE_Export;
-$wpie_import = new WPIE_Import;
+$wpie_export = new WPIE_Export();
+$wpie_import = new WPIE_Import();
