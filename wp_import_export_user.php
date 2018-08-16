@@ -20,6 +20,7 @@ define( 'WPIE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPIE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 function classAutoLoader($class){
+	//checks if class starts with prefix
 	$needle   = "wpie";
 	if( strpos( $class, $needle ) !== false) {
 	 	return;
