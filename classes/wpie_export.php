@@ -9,18 +9,6 @@ class WPIE_Export{
 		add_shortcode( 'wpie_csv_button',array($this,'wpie_csv_button_callback') );
 	}
 
-	function wpie_csv_button_callback($atts){
-		$a = shortcode_atts( array(
-		'role_slug' => ''
-		), $atts );
-
-		$role_slug = esc_attr($a['role_slug']);
-
-		?>
-		<a href="?print=<?php echo $role_slug; ?>">Export to CSV</a>
-		<?php
-	}
-
 	function generate_csv_callback(){
 
 		if(isset($_GET['print'])){
