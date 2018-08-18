@@ -28,6 +28,7 @@ class WPIE_Export{
 			                   'status'     => false,
 			);
 
+			//get all the meta fields of the user.
 			$user_args = array(
 				'role'   => wp_kses_post( $_GET['print'] ),
 				'fields' => 'all_with_meta',
@@ -93,13 +94,10 @@ class WPIE_Export{
 		);
 	
 		$meta_keys = $wpdb->get_results( "SELECT distinct(meta_key) FROM $wpdb->usermeta" );
+		//get all metakeys in the results
 		$meta_keys = wp_list_pluck( $meta_keys, 'meta_key' );
 		$fields    = array_merge( $data_keys, $meta_keys );
 
 		return $fields;
 	}
 }
-
-
-
-// new WPIE_Export;
