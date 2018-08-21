@@ -1,1 +1,1 @@
-# Simple Export and Import of WordPRess Users
+# Simple Export and Import of WordPress Users
