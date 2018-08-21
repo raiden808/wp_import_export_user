@@ -46,20 +46,6 @@ class WPIE_Import{
 				$accepted_user_data = $this->standard_keys($container);
 				$accessed_user_meta = $this->user_meta_list($container);
 
-				//test area
-				// echo $accessed_user_meta[$prefix.'capabilities'];
-				// foreach (maybe_unserialize($accessed_user_meta[$prefix.'capabilities']) as $key=>$value) {
-				// 	echo $key;
-				// }
-
-				// echo 'user_id = '.$accepted_user_data['ID']."<br />";
-
-				// $u = new WP_User($accepted_user_data['ID']);
-				// echo "<pre>"
-
-				// echo "</pre>"
-				//test area end
-
 				$fields = $this->accepted_user_data;
 
 				$sql =  "INSERT INTO `".$prefix."users` 
@@ -120,5 +106,3 @@ class WPIE_Import{
 		return $new_container;
 	}
 }
-
-// $wpie_import = new WPIE_Import;
