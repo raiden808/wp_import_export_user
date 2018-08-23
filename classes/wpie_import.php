@@ -42,7 +42,7 @@ class WPIE_Import{
 			$new_container = $this->combine_header_and_meta($headers,$user_meta);
 
 			foreach ($new_container as $container) {
-			// 	# code...
+				//retrieves standard fields for user
 				$accepted_user_data = $this->standard_keys($container);
 				$accessed_user_meta = $this->user_meta_list($container);
 
@@ -63,7 +63,6 @@ class WPIE_Import{
 					unset($accessed_user_meta[$prefix.'capabilities']);
 					//upload each user meta
 					foreach ($accessed_user_meta as $key => $value) {
-						# code...
 						update_user_meta( $accepted_user_data['ID'],$key,$value);
 					}
 				}
@@ -99,7 +98,6 @@ class WPIE_Import{
 		$new_container = array();
 		$i = 0;
 		foreach ($user_meta as $meta) {
-			# code...
 			$new_container[$i] = array_combine($headers,$meta);
 			$i++;
 		}
