@@ -44,6 +44,7 @@ class WPIE_Import{
 			foreach ($new_container as $container) {
 				//retrieves standard fields for user
 				$accepted_user_data = $this->standard_keys($container);
+				//retrieves custom metas
 				$accessed_user_meta = $this->user_meta_list($container);
 
 				$fields = $this->accepted_user_data;
