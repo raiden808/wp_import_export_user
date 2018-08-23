@@ -25,49 +25,56 @@ class WPIE_Import{
 		{
 			$tmpName    = $_FILES['csv']['tmp_name'];
 			$csvAsArray = array_map('str_getcsv', file($tmpName));
+
+
+			echo "<pre>";
+			print_r($csvAsArray);
+			echo "</pre>";
+
+
 			//set the header for the array
-			$headers    = $csvAsArray[0];
-			//replace user_id to ID
-			$headers = array_replace($headers,
-	    	array_fill_keys(
-			        array_keys($headers,'user_id'),
-			        'ID'
-			    )
-			);
+			// $headers    = $csvAsArray[0];
+			// //replace user_id to ID
+			// $headers = array_replace($headers,
+	  //   	array_fill_keys(
+			//         array_keys($headers,'user_id'),
+			//         'ID'
+			//     )
+			// );
 			//set the contents
-			unset($csvAsArray[0]);
-			$user_meta  = $csvAsArray;
+			// unset($csvAsArray[0]);
+			// $user_meta  = $csvAsArray;
 
-			//sets and combine array
-			$new_container = $this->combine_header_and_meta($headers,$user_meta);
+			// //sets and combine array
+			// $new_container = $this->combine_header_and_meta($headers,$user_meta);
 
-			foreach ($new_container as $container) {
-				//retrieves standard fields for user
-				$accepted_user_data = $this->standard_keys($container);
-				//retrieves custom metas
-				$accessed_user_meta = $this->user_meta_list($container);
+			// foreach ($new_container as $container) {
+			// 	//retrieves standard fields for user
+			// 	$accepted_user_data = $this->standard_keys($container);
+			// 	//retrieves custom metas
+			// 	$accessed_user_meta = $this->user_meta_list($container);
 
-				$fields = $this->accepted_user_data;
+			// 	$fields = $this->accepted_user_data;
 
-				$sql =  "INSERT INTO `".$prefix."users` 
-				    (`".implode('`,`', $fields)."`)
-				    VALUES('".implode("','", $accepted_user_data)."')";
+			// 	$sql =  "INSERT INTO `".$prefix."users` 
+			// 	    (`".implode('`,`', $fields)."`)
+			// 	    VALUES('".implode("','", $accepted_user_data)."')";
 
-				if($wpdb->query($sql)) {
-					echo "success";
-					$u = new WP_User($accepted_user_data['ID']);
-					//extract the roles in an array
-					foreach (maybe_unserialize($accessed_user_meta[$prefix.'capabilities']) as $key=>$value) {
-						$u->add_role( $key );
-					}
-					//remove capability for the role
-					unset($accessed_user_meta[$prefix.'capabilities']);
-					//upload each user meta
-					foreach ($accessed_user_meta as $key => $value) {
-						update_user_meta( $accepted_user_data['ID'],$key,$value);
-					}
-				}
-			}
+			// 	if($wpdb->query($sql)) {
+			// 		echo "success";
+			// 		$u = new WP_User($accepted_user_data['ID']);
+			// 		//extract the roles in an array
+			// 		foreach (maybe_unserialize($accessed_user_meta[$prefix.'capabilities']) as $key=>$value) {
+			// 			$u->add_role( $key );
+			// 		}
+			// 		//remove capability for the role
+			// 		unset($accessed_user_meta[$prefix.'capabilities']);
+			// 		//upload each user meta
+			// 		foreach ($accessed_user_meta as $key => $value) {
+			// 			update_user_meta( $accepted_user_data['ID'],$key,$value);
+			// 		}
+			// 	}
+			// }
 
 		}
 	}	
