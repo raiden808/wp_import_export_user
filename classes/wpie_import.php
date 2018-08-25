@@ -27,13 +27,17 @@ class WPIE_Import{
 			$csvAsArray = array_map('str_getcsv', file($tmpName));
 
 
-			echo "<pre>";
-			print_r($csvAsArray);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($csvAsArray);
+			// echo "</pre>";
 
 
 			//set the header for the array
-			// $headers    = $csvAsArray[0];
+			$headers    = $csvAsArray[0];
+
+			echo "<pre>";
+			print_r($headers);
+			echo "</pre>";
 			// //replace user_id to ID
 			// $headers = array_replace($headers,
 	  //   	array_fill_keys(
