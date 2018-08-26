@@ -35,16 +35,19 @@ class WPIE_Import{
 			//set the header for the array
 			$headers    = $csvAsArray[0];
 
-			echo "<pre>";
-			print_r($headers);
-			echo "</pre>";
+			
 			// //replace user_id to ID
-			// $headers = array_replace($headers,
-	  //   	array_fill_keys(
-			//         array_keys($headers,'user_id'),
-			//         'ID'
-			//     )
-			// );
+			$headers1 = array_replace($headers,
+	    	array_fill_keys(
+			        array_keys($headers,'user_id'),
+			        'ID'
+			    )
+			);
+
+			echo "<pre>";
+			print_r($headers1);
+			echo "</pre>";
+
 			//set the contents
 			// unset($csvAsArray[0]);
 			// $user_meta  = $csvAsArray;
