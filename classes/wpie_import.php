@@ -26,12 +26,6 @@ class WPIE_Import{
 			$tmpName    = $_FILES['csv']['tmp_name'];
 			$csvAsArray = array_map('str_getcsv', file($tmpName));
 
-
-			// echo "<pre>";
-			// print_r($csvAsArray);
-			// echo "</pre>";
-
-
 			//set the header for the array
 			$headers    = $csvAsArray[0];
 
