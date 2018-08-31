@@ -29,25 +29,26 @@ class WPIE_Import{
 			//set the header for the array
 			$headers    = $csvAsArray[0];
 
-			
-			// //replace user_id to ID
-			$headers1 = array_replace($headers,
+			//replace ID to user_id
+			$headers = array_replace($headers,
 	    	array_fill_keys(
-			        array_keys($headers,'user_id'),
-			        'ID'
+			        array_keys($headers,'ID'),
+			        'user_id'
 			    )
 			);
 
+			//set the contents
+			unset($csvAsArray[0]);
+			$user_meta  = $csvAsArray;
+
+			//sets and combine array
+			//$new_container = $this->combine_header_and_meta($headers,$user_meta);
+
 			echo "<pre>";
-			print_r($headers1);
+			print_r($tmpName);
 			echo "</pre>";
 
-			//set the contents
-			// unset($csvAsArray[0]);
-			// $user_meta  = $csvAsArray;
 
-			// //sets and combine array
-			// $new_container = $this->combine_header_and_meta($headers,$user_meta);
 
 			// foreach ($new_container as $container) {
 			// 	//retrieves standard fields for user
