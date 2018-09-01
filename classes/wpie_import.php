@@ -11,6 +11,29 @@ class WPIE_Import{
 		add_shortcode( 'wpie_import_user', array($this,'wpie_import_user_callback') );
 	}
 
+
+	//test
+	function readCSV($csvFile){
+    	$file_handle = fopen($csvFile, 'r');
+	    while (!feof($file_handle) ) {
+	        $line_of_text[] = fgetcsv($file_handle, 1024);
+	    }
+	    fclose($file_handle);
+	    return $line_of_text;
+	}
+	 
+	 
+	// // Set path to CSV file
+	// $csvFile = 'test.csv';
+	 
+	// $csv = readCSV($csvFile);
+	// echo '<pre>';
+	// print_r($csv);
+	// echo '</pre>';
+
+	//test
+
+
 	public function wpie_import_user_callback(){
 		global $wpdb;
 		$prefix = $wpdb->prefix;
@@ -24,29 +47,38 @@ class WPIE_Import{
 		if(isset($_POST['submit']))
 		{
 			$tmpName    = $_FILES['csv']['tmp_name'];
-			$csvAsArray = array_map('str_getcsv', file($tmpName));
+
+			//test
+			//$csv = explode("\n", file_get_contents($tmpName));
+
+			echo "<pre>";
+			print_r($this->readCSV($tmpName));
+			echo "</pre>";
+			//test
+
+			//$csvAsArray = array_map('str_getcsv', file($tmpName));
 
 			//set the header for the array
-			$headers    = $csvAsArray[0];
+			// $headers    = $csvAsArray[0];
 
-			//replace ID to user_id
-			$headers = array_replace($headers,
-	    	array_fill_keys(
-			        array_keys($headers,'ID'),
-			        'user_id'
-			    )
-			);
+			// //replace ID to user_id
+			// $headers = array_replace($headers,
+	  //   	array_fill_keys(
+			//         array_keys($headers,'ID'),
+			//         'user_id'
+			//     )
+			// );
 
-			//set the contents
-			unset($csvAsArray[0]);
-			$user_meta  = $csvAsArray;
+			// //set the contents
+			// unset($csvAsArray[0]);
+			// $user_meta  = $csvAsArray;
 
 			//sets and combine array
 			//$new_container = $this->combine_header_and_meta($headers,$user_meta);
 
-			echo "<pre>";
-			print_r($tmpName);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($csvAsArray);
+			// echo "</pre>";
 
 
 
