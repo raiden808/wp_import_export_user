@@ -44,6 +44,6 @@ Success message:
 
 <img src="assets/images/Screenshot_6.png"/>
 
-Verify the existing user in you wp-admin
+Verify your uploaded user in the dashboard.
 
 <img src="assets/images/Screenshot_7.png"/>
