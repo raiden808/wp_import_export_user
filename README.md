@@ -6,7 +6,7 @@ If you're going to use it. Please use it on your staging or development area fir
 Usage
 ==========
 
-<h4>Download method</h4>
+<h4>Download Method</h4>
 
 Using the GET method we use the variable `print` and assign the `role` you want to 
 download into a **csv** format.
@@ -22,3 +22,6 @@ This will download **subscriber** role.
 The CSV file will contain this.
 
 <img src="assets/images/Screenshot_2.png" alt="Demo of highlight share" />
+
+
+<h4>Upload Method</h4>
