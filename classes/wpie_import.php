@@ -71,7 +71,7 @@ class WPIE_Import{
 				    VALUES('".implode("','", $accepted_user_data)."')";
 
 				if($wpdb->query($sql)) {
-					echo "Success Upload";
+					echo "Success Upload!";
 					$u = new WP_User($accepted_user_data['ID']);
 					//extract the roles in an array
 					foreach (maybe_unserialize($accessed_user_meta[$prefix.'capabilities']) as $key=>$value) {
