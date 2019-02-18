@@ -33,3 +33,12 @@ We utilize Shortcode API for the upload method.
 The output would be:
 
 <img src="assets/images/Screenshot_3.png"/>
+
+Now we're going to upload a deleted user using our csv back up.
+
+
+<img src="assets/images/Screenshot_4.png"/>
+
+
+Success message:
+

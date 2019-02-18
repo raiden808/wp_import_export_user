@@ -64,8 +64,6 @@ class WPIE_Import{
 				//retrieves custom metas
 				$accessed_user_meta = $this->user_meta_list($container);
 
-				print_r($accepted_user_data);
-
 				$fields = $this->accepted_user_data;
 
 				$sql =  "INSERT INTO `".$prefix."users` 
@@ -73,7 +71,7 @@ class WPIE_Import{
 				    VALUES('".implode("','", $accepted_user_data)."')";
 
 				if($wpdb->query($sql)) {
-					echo "success";
+					echo "Success Upload";
 					$u = new WP_User($accepted_user_data['ID']);
 					//extract the roles in an array
 					foreach (maybe_unserialize($accessed_user_meta[$prefix.'capabilities']) as $key=>$value) {
