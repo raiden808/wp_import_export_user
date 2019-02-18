@@ -6,7 +6,7 @@ If you're going to use it. Please use it on your staging or development area fir
 Usage
 ==========
 
-## Download method:
+###### Download method:
 
 Using the GET method we use the variable `print` and assign the `role` you want to 
 download into a **csv** format.
