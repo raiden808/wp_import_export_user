@@ -16,3 +16,5 @@ Sample:
 ```http://localhost/playground/?print=subscriber```
 
 This will download **subscriber** role.
+
+<img src="assets/images/Screenshot_1.png" alt="Demo of highlight share" />
