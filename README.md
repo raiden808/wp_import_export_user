@@ -1,8 +1,7 @@
 Simple Export and Import of WordPress Users
 ==========
 
-A simple plugin to back up you users in a CSV file. With upload and download capability.
-If you're going to use it. Please use it on your staging or development area first.
+A simple plugin to back up you users in a CSV file with upload and download capability.Please use it on your staging or development area first.
 
 Usage
 ==========
