@@ -18,3 +18,7 @@ Sample:
 This will download **subscriber** role.
 
 <img src="assets/images/Screenshot_1.png" alt="Demo of highlight share" />
+
+The CSV file will contain this.
+
+<img src="assets/images/Screenshot_2.png" alt="Demo of highlight share" />
