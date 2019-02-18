@@ -24,6 +24,9 @@ class WPIE_Import{
 	public function wpie_import_user_callback(){
 		global $wpdb;
 		$prefix = $wpdb->prefix;
+
+		ob_start();
+
 		?>
 		<form action="" method="post" enctype="multipart/form-data">
 			<input type="file" accept=".csv" name="csv" value="" />
@@ -86,6 +89,9 @@ class WPIE_Import{
 			}
 
 		}
+
+		return ob_get_clean();
+
 	}	
 	//default userdata keys
 	protected function standard_keys($accepted_array){
