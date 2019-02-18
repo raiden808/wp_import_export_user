@@ -17,11 +17,19 @@ Sample:
 
 This will download **subscriber** role.
 
-<img src="assets/images/Screenshot_1.png" alt="Demo of highlight share" />
+<img src="assets/images/Screenshot_1.png"/>
 
 The CSV file will contain this.
 
-<img src="assets/images/Screenshot_2.png" alt="Demo of highlight share" />
+<img src="assets/images/Screenshot_2.png"/>
 
 
 <h4>Upload Method</h4>
+
+We utilize Shortcode API for the upload method.
+
+``[wpie_import_user]``
+
+The output would be:
+
+<img src="assets/images/Screenshot_3.png"/>
