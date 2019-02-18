@@ -43,3 +43,7 @@ Now we're going to upload a deleted user using our csv back up.
 Success message:
 
 <img src="assets/images/Screenshot_6.png"/>
+
+Verify the existing user in you wp-admin
+
+<img src="assets/images/Screenshot_7.png"/>
