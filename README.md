@@ -42,4 +42,4 @@ Now we're going to upload a deleted user using our csv back up.
 
 Success message:
 
-<img src="assets/images/Screenshot_5.png"/>
+<img src="assets/images/Screenshot_6.png"/>
